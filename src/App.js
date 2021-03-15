@@ -17,8 +17,8 @@ class App extends Component {
   id = 3;
 
   state = {
-    data: Data({
-      users: List([
+    data: Data({ // object로 묶고
+      users: List([ // 배열로 User를 추가
         User({
           id: 1,
           username: "kochic",
@@ -42,8 +42,8 @@ class App extends Component {
   onButtonClick = (e) => {
     const {data} = this.state;
     this.setState({
-      data: data.set("input", "")
-      .update("users", users => users.push(new User({
+      data: data.set("input", "") // data를 읽은 다음에
+      .update("users", users => users.push(new User({ // 설정할때는 update가능
         id: this.id++,
         username: data.get("input")
       })))
